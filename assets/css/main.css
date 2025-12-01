@@ -1776,3 +1776,78 @@ a:hover {
 .footer .social-links a:hover {
   background: #ec4899;
 }
+
+/* ===== HERO: texto más claro sobre el fondo ===== */
+
+.hero h2,
+.hero p {
+  color: #f9fafb; /* casi blanco */
+  text-shadow: 0 2px 12px rgba(15, 23, 42, 0.85); /* hace que se lea encima del verde/azul */
+}
+
+/* La línea debajo del typed también clara */
+.hero p span {
+  border-bottom-color: #f9fafb;
+}
+
+/* ===== SIDEBAR MÁS DELGADA Y LÚDICA ===== */
+
+/* Sidebar base, la hacemos más angosta */
+.header {
+  min-width: 90px;
+  padding: 0 8px;
+}
+
+/* Versión escritorio (>= 1200px) */
+@media (min-width: 1200px) {
+  .header {
+    width: 90px; /* antes era mucho más ancho */
+  }
+
+  /* El main se corre solo 90px, así ya no se tapa el texto */
+  .header ~ main {
+    margin-left: 90px;
+  }
+
+  /* El hero se estira hasta la izquierda para ocupar toda la pantalla */
+  .header ~ main .hero {
+    margin-left: -90px;
+    width: 100vw;
+  }
+
+  /* Nav más compacto: solo iconos centrados */
+  .navmenu ul {
+    width: 64px;
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    padding: 10px;
+    max-width: 64px;
+    justify-content: center;
+  }
+
+  .navmenu a span,
+  .navmenu a:focus span {
+    display: none !important; /* en desktop solo iconos, texto aparece al hacer hover en pantallas pequeñas */
+  }
+}
+
+/* Figura de color tipo montaña rusa al borde del sidebar */
+.header::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -40px;         /* se mete un poco hacia el contenido */
+  width: 180px;
+  height: 140%;
+  background:
+    radial-gradient(circle at 20% 10%,  #ec4899 0,  transparent 60%),
+    radial-gradient(circle at 80% 40%,  #3b82f6 0,  transparent 55%),
+    radial-gradient(circle at 30% 85%,  #f97316 0,  transparent 55%);
+  filter: blur(4px);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 60% 40% 70% 30%; /* da esa sensación orgánica/onda */
+}
