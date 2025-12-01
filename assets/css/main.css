@@ -1790,64 +1790,61 @@ a:hover {
   border-bottom-color: #f9fafb;
 }
 
-/* ===== SIDEBAR MÁS DELGADA Y LÚDICA ===== */
+/* ===== RESUME MÁS INTERACTIVO ===== */
 
-/* Sidebar base, la hacemos más angosta */
-.header {
-  min-width: 90px;
-  padding: 0 8px;
+/* Contenedor */
+.resume .resume-item {
+  position: relative;
+  padding: 20px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.6);
+  transition: all 0.3s ease;
+  border-left: 4px solid #d63384; /* magenta del sidebar */
+  margin-bottom: 25px;
 }
 
-/* Versión escritorio (>= 1200px) */
-@media (min-width: 1200px) {
-  .header {
-    width: 90px; /* antes era mucho más ancho */
-  }
-
-  /* El main se corre solo 90px, así ya no se tapa el texto */
-  .header ~ main {
-    margin-left: 90px;
-  }
-
-  /* El hero se estira hasta la izquierda para ocupar toda la pantalla */
-  .header ~ main .hero {
-    margin-left: -90px;
-    width: 100vw;
-  }
-
-  /* Nav más compacto: solo iconos centrados */
-  .navmenu ul {
-    width: 64px;
-  }
-
-  .navmenu a,
-  .navmenu a:focus {
-    padding: 10px;
-    max-width: 64px;
-    justify-content: center;
-  }
-
-  .navmenu a span,
-  .navmenu a:focus span {
-    display: none !important; /* en desktop solo iconos, texto aparece al hacer hover en pantallas pequeñas */
-  }
+/* Glow al hacer hover */
+.resume .resume-item:hover {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.10);
+  transform: translateY(-4px);
+  border-left-color: #7a4da1; /* se pone más violeta */
 }
 
-/* Figura de color tipo montaña rusa al borde del sidebar */
-.header::before {
+/* Círculo del timeline */
+.resume .resume-item::before {
   content: "";
   position: absolute;
-  top: -20%;
-  right: -40px;         /* se mete un poco hacia el contenido */
-  width: 180px;
-  height: 140%;
-  background:
-    radial-gradient(circle at 20% 10%,  #ec4899 0,  transparent 60%),
-    radial-gradient(circle at 80% 40%,  #3b82f6 0,  transparent 55%),
-    radial-gradient(circle at 30% 85%,  #f97316 0,  transparent 55%);
-  filter: blur(4px);
-  opacity: 0.9;
-  pointer-events: none;
-  z-index: -1;
-  border-radius: 60% 40% 70% 30%; /* da esa sensación orgánica/onda */
+  top: 15px;
+  left: -11px;
+  width: 18px;
+  height: 18px;
+  background: #d63384;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  border: 3px solid white;
 }
+
+/* Círculo más grande/brillante al hover */
+.resume .resume-item:hover::before {
+  background: #7a4da1;
+  transform: scale(1.2);
+}
+
+/* Títulos */
+.resume .resume-item h4 {
+  font-size: 19px;
+  color: #1f2937;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+/* Años con una pastilla */
+.resume .resume-item h5 {
+  background: #eae2f8;
+  color: #5b21b6;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
